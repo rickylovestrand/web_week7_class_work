@@ -19,6 +19,7 @@ fetch(minneapolisForecastUrl) // returns a Promise
             let temperature = forecast.temperature
             let temperatureUnit = forecast.temperatureUnit
             let forecastIconUrl = forecast.icon // string of the url of the icon
+            let forecastDetail = forecast.detailedForecast
 
             let forecastRow = document.createElement('tr')
             weatherForecastTableElement.appendChild(forecastRow)
@@ -35,10 +36,16 @@ fetch(minneapolisForecastUrl) // returns a Promise
             let forecastIconTableData = document.createElement('td')
             let forecastIconImg = document.createElement('img')
             forecastIconImg.src = forecastIconUrl
+            forecastIconTableData.appendChild(forecastIconImg)
+
+            // create table data for forecast detail
+            let forecastDetailTableData = document.createElement('td')
+            forecastDetailTableData.innerHTML = forecastDetail
 
             // add the table data to the row
             forecastRow.appendChild(forecastPeriodTableData)
             forecastRow.appendChild(forecastTemperatureTableData)
             forecastRow.appendChild(forecastIconTableData)
+            forecastRow.appendChild(forecastDetailTableData)
         })
     }
