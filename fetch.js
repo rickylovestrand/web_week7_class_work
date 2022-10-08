@@ -22,6 +22,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 iss(maxFailedAttempts) // call function one time to start
 // setInterval(iss, update)  // 10 seconds
 function iss(attempts){
+    // if tried and failed three times already, then stop trying and exit
     if (attempts <= 0){
         alert('Attempted to contact server, failed after three attempts')
         return
